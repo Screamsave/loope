@@ -21,11 +21,9 @@ WORKDIR /loope/foobarbaz/
 RUN mvn clean
 RUN mvn install
 
-ARG JAR_FILE=loope/foobarbaz/target/foobarbaz-1.0-SNAPSHOT.jar 
-
-ADD ${JAR_FILE} foobarbaz-1.0.jar
+WORKDIR /loope/foobarbaz/target
 
 EXPOSE 8080
 
-ENTRYPOINT ["java","-jar","/foobarbaz-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","foobarbaz-1.0-SNAPSHOT.jar"]
 
